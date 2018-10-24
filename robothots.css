@@ -1,0 +1,20 @@
+div {
+  border: 2px solid black;
+}
+
+#logo {
+  width: 150px;
+  height: 150px;
+  
+}
+
+#title span{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  font-size:100px;
+}
+#video_container {
+  height: 700px;
+  padding: 0px;
+}
