@@ -15,6 +15,10 @@ div {
   font-size:100px;
 }
 #video_container {
-  height: 700px;
+  height: 400px;
+  width: 400px;
   padding: 0px;
+}
+#video{
+  height: 600px;
 }
