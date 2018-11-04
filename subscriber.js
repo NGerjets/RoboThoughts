@@ -10,7 +10,7 @@ subcribers for:
 var listener_angular = new ROSLIB.Topic({
     ros : ros,
     name : '/status/controls/angular',
-    messageType : ''
+    messageType : 'riptide_msgs/ControlStatusAngular'
   });
   listener.subscribe(function(message){
     console.log(message);
@@ -19,7 +19,7 @@ var listener_angular = new ROSLIB.Topic({
 var listener_depth = new ROSLIB.Topic({
     ros : ros,
     name : '/status/controls/depth',
-    messageType : ''
+    messageType : 'riptide_msgs/ControlStatus'
   });
   listener.subscribe(function(message){
     console.log(message);
@@ -28,7 +28,7 @@ var listener_depth = new ROSLIB.Topic({
 var listener_linear = new ROSLIB.Topic({
     ros : ros,
     name : '/status/controls/linear',
-    messageType : ''
+    messageType : 'riptide_msgs/ControlStatusLinear'
   });
   listener.subscribe(function(message){
     console.log(message);
@@ -37,7 +37,7 @@ var listener_linear = new ROSLIB.Topic({
 var listener_thruster = new ROSLIB.Topic({
     ros : ros,
     name : '/status/controls/thruster',
-    messageType : ''
+    messageType : 'riptide_msgs/ThrusterResiduals'
   });
   listener.subscribe(function(message){
     console.log(message);
