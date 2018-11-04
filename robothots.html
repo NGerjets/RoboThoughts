@@ -41,7 +41,7 @@
     window.onload = function(){
       //Setup Code. Robot IP self explainable, ros is the rosbridge that allows
       //Topics to be subscribed to after roslaunch rosbridge_server rosbridge_websocket.launch is run
-      robot_IP = "172.28.44.124";
+      robot_IP = "127.0.0.1";
       ros = new ROSLIB.Ros({
         url: "ws://" + robot_IP + ":9090"
       });
@@ -62,7 +62,15 @@
       listener.subscribe(function(message){
         console.log(message);
       });
-      
+      IMU_message = new ROSLIB.Topic({
+        ros:ros,
+        name : 'state/imu',
+        messageType : 'riptide_msgs/Imu'
+    });
+    
+    IMU_message.subscribe(function(message){
+        console.log('Recieved message on ' +IMU_message.name + ': ' + message.data);
+    });
       
     }
     
