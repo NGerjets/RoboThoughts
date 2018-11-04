@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="robothots.css"/>
@@ -39,12 +39,21 @@
     var robot_IP;
     var ros;
     window.onload = function(){
-      robot_IP = "172.31.67.93";
+      //Setup Code. Robot IP self explainable, ros is the rosbridge that allows
+      //Topics to be subscribed to after roslaunch rosbridge_server rosbridge_websocket.launch is run
+      robot_IP = "172.28.44.124";
       ros = new ROSLIB.Ros({
         url: "ws://" + robot_IP + ":9090"
       });
+      
+      
+      //Video socket connection established here, rosrun web_video_server web_video_server
+      //Has to be called before webpage open
       video = document.getElementById('video');
       video.src = "http://" + robot_IP + ":8080/stream?topic=/camera/image_raw&type=mjpeg&quality=80&image_trasport=compressed";
+      
+      //Subscriber Topic
+      
       var listener = new ROSLIB.Topic({
         ros : ros,
         name : '/rosout_agg',
@@ -53,6 +62,8 @@
       listener.subscribe(function(message){
         console.log(message);
       });
+      
+      
     }
     
     
