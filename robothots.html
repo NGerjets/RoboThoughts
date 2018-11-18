@@ -24,29 +24,29 @@
         <div class="col-md-8" id="video_container">
           <img src="" alt="" id="video"/>
         </div>
-        <div id = "list_container">
-          <div class="tab col-md-3">
-            <button class="tablinks" onclick="openStats(event, 'Position')">Position</button>
-            <button class="tablinks" onclick="openStats(event, 'Acceleration')">Acceleration</button>
-            <button class="tablinks" onclick="openStats(event, 'Task')">Task</button>
-            <button class="tablinks" onclick="openStats(event, 'Rosout')">Rosout</button>
+        <div id = "list_container" class="col-md-4">
+          <div class="nav nav-tabs" id="v-pills-tab" role="tablist">
+            <a class="nav-link active" id="position-tab" data-toggle="pill" href="#position" role="tab" aria-controls="position" aria-selected="true">Position</a>
+            <a class="nav-link" id="acceleration-tab" data-toggle="pill" href="#acceleration" role="tab" aria-controls="aceleration" aria-selected="false">Acceleration</a>
+            <a class="nav-link" id="task-tab" data-toggle="pill" href="#task" role="tab" aria-controls="task" aria-selected="false">Task</a>
+            <a class="nav-link" id="rosout-tab" data-toggle="pill" href="#rosout" role="tab" aria-controls="rosout" aria-selected="false">RosOut</a>
           </div>
-          <div id = "tab_display"class="col-md-9">
-            <div id = "Position" class = "tabcontent">
-              <h3>Position Stats</h3>
-              <p>Unordered list of stats goes here</p>
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="position" role="tabpanel" aria-labelledby="position-tab">
+              <ul class="stats-tab">
+              </ul>
             </div>
-            <div id = "Acceleration" class = "tabcontent">
-              <h3>Acceleration Stats</h3>
-              <p>Unordered list of stats goes here</p>
+            <div class="tab-pane fade" id="acceleration" role="tabpanel" aria-labelledby="acceleration-tab">
+              <ul class="stats-tab">
+              </ul>
             </div>
-            <div id = "Task" class = "tabcontent">
-              <h3>Task Stats</h3>
-              <p>Unordered list of stats goes here</p>
+            <div class="tab-pane fade" id="task" role="tabpanel" aria-labelledby="task-tab">
+              <ul class="stats-tab">
+              </ul>
             </div>
-            <div id = "Rosout" class = "tabcontent">
-              <h3>Rosout Stats</h3>
-              <p>Unordered list of stats goes here</p>
+            <div class="tab-pane fade" id="rosout" role="tabpanel" aria-labelledby="rosout-tab">
+              <ul class="stats-tab">
+              </ul>
             </div>
           </div>
         </div>
@@ -79,5 +79,5 @@
     
     
   </script>
-  <script src="robothot_state_sub.js"/>
+  <script src="robothot_state_sub.js"></script>
 </html>

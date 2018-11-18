@@ -24,7 +24,9 @@ div {
 }
 #list_container{
   width:100%;
+  padding: 0;
 }
+
 
 /* Style the tab */
 .tab {
@@ -61,10 +63,8 @@ div {
 
 /* Style the tab content */
 .tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-    height: 300px;
+  margin: 0;s
+  positon: absolute;
+  overflow: auto;
+  
 }

@@ -5,10 +5,12 @@ var object_message;
 var switches_message;
 var robot_IP = '127.0.0.1';
 
+
 window.onload = function(){
   ros = new ROSLIB.Ros({
     url: "ws://" + robot_IP + ":9090"
   });
+
   
   
   //Video socket connection established here, rosrun web_video_server web_video_server
@@ -17,6 +19,10 @@ window.onload = function(){
   video.src = "http://" + robot_IP + ":8080/stream?topic=/camera/image_raw&type=mjpeg&quality=80&image_trasport=compressed";
   
   //Subscriber Topic
+  var posList = document.getElementById("position").children[0];
+  var accList = document.getElementById("acceleration").children[0];
+  var taskList = document.getElementById("position").children[0];
+  var rosList = document.getElementById("position").children[0];
   
   var listener = new ROSLIB.Topic({
     ros : ros,
