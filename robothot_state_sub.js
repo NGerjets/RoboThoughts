@@ -5,10 +5,15 @@ var object_message;
 var switches_message;
 var robot_IP = '127.0.0.1';
 
+// Command for opening the socket:
+// roslaunch rosbridge_server rosbridge_websocket.launch
+
+
 window.onload = function(){
   ros = new ROSLIB.Ros({
     url: "ws://" + robot_IP + ":9090"
   });
+  
   
   
   //Video socket connection established here, rosrun web_video_server web_video_server
@@ -34,7 +39,7 @@ window.onload = function(){
     });
     
     IMU_message.subscribe(function(message){
-        concsole.log('Recieved message on ' +IMU_message.name + ': ' + message.data);
+        console.log('Recieved message on ' +IMU_message.name + ': ' + message.data);
     });
 
     depth_message = new ROSLIB.Topic({
@@ -44,7 +49,7 @@ window.onload = function(){
     });
     
     depth_message.subscribe(function(message){
-        concsole.log('Recieved message on ' +depth_message.name + ': ' + message.data);
+        console.log('Recieved message on ' +depth_message.name + ': ' + message.data);
     });
 
     object_message = new ROSLIB.Topic({
@@ -54,7 +59,7 @@ window.onload = function(){
     });
     
     object_message.subscribe(function(message){
-        concsole.log('Recieved message on ' +object_message.name + ': ' + message.data);
+        console.log('Recieved message on ' +object_message.name + ': ' + message.data);
     });
 
     switches_message = new ROSLIB.Topic({
@@ -64,7 +69,7 @@ window.onload = function(){
     });
     
     IMU_message.subscribe(function(message){
-        concsole.log('Recieved message on ' +switches_message.name + ': ' + message.data);
+        console.log('Recieved message on ' +switches_message.name + ': ' + message.data);
     });
     
     var listener_angular = new ROSLIB.Topic({
@@ -72,7 +77,7 @@ window.onload = function(){
         name : '/status/controls/angular',
         messageType : 'riptide_msgs/ControlStatusAngular'
       });
-      listener.subscribe(function(message){
+      listener_angular.subscribe(function(message){
         console.log(message);
       });
 
@@ -81,7 +86,7 @@ window.onload = function(){
         name : '/status/controls/depth',
         messageType : 'riptide_msgs/ControlStatus'
       });
-      listener.subscribe(function(message){
+      listener_depth.subscribe(function(message){
         console.log(message);
       });
 
@@ -90,7 +95,7 @@ window.onload = function(){
         name : '/status/controls/linear',
         messageType : 'riptide_msgs/ControlStatusLinear'
       });
-      listener.subscribe(function(message){
+      listener_linear.subscribe(function(message){
         console.log(message);
       });
 
@@ -99,7 +104,7 @@ window.onload = function(){
         name : '/status/controls/thruster',
         messageType : 'riptide_msgs/ThrusterResiduals'
       });
-      listener.subscribe(function(message){
+      listener_thruster.subscribe(function(message){
         console.log(message);
       });
 }
